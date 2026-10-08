@@ -18,7 +18,7 @@ async function sendTokenResponse(user, res, message) {
     res.cookie("token", token, {
         httpOnly: true,
         secure: false,       // development
-        sameSite: "lax",
+        sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000
     });
     res.status(201).json({
