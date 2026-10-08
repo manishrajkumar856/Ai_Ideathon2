@@ -15,7 +15,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: "http://localhost:5173, https://ai-ideathon2.onrender.com",
+    origin: "http://localhost:5173",
     credentials: true,
     secure: false
   })
