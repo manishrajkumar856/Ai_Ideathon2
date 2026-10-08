@@ -213,7 +213,7 @@ const Register = () => {
     // ==========================================
 
     const handleGoogleRegister = () => {
-        window.location.href = "http://localhost:3000/api/auth/google";
+        window.location.href = "https://ai-ideathon2.onrender.comapi/auth/google";
     };
 
     // ==========================================

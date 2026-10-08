@@ -95,7 +95,7 @@ const Login = () => {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:3000/api/auth/google";
+        window.location.href = "https://ai-ideathon2-dc1y.vercel.app/api/auth/google";
     };
 
     return (

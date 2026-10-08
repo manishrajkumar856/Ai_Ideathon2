@@ -144,10 +144,10 @@ export const googleController = async (req, res) => {
 
         // Send the token to the client
         res.cookie("token", token);
-        res.redirect('http://localhost:5173/');
+        res.redirect('https://ai-ideathon2-dc1y.vercel.app/');
 
     } catch (error) {
         console.log(error);
-        res.redirect('http://localhost:5173/login');
+        res.redirect('https://ai-ideathon2-dc1y.vercel.app/login');
     }
 }
