@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authApiInstance = axios.create({
-    baseURL: "http://localhost:3000/api/auth",
+    baseURL: "https://ai-ideathon2.onrender.com/api/auth",
     withCredentials: true,
 });
 

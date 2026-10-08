@@ -15,7 +15,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://localhost:5173, https://ai-ideathon2.onrender.com",
     credentials: true,
     secure: false
   })
@@ -41,8 +41,6 @@ app.use(passport.initialize());
 // Routes Middleware
 app.use('/api/auth', authRouter);
 app.use('/api/ai', routerAi);
-
-
 
 
 export default app;
