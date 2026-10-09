@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { register, login, me } from '../service/auth.api';
+import { register, login, me, logout } from '../service/auth.api';
 import { setUser, setLoading, setError } from '../state/auth.slice'
 import { setRoadmaps } from '../../ai/state/ai.slice';
 import { useAi } from '../../ai/hooks/useAi';
@@ -32,6 +32,15 @@ export function useAuth() {
     }
   }
 
+   async function handleLogout() {
+    try {
+      const data = await logout();  
+      dispatch(setUser(null));
+    } catch (error) {
+      throw error;
+    }
+  }
+
   async function handleGetMe() {
     try {
       dispatch(setLoading(true));
@@ -52,5 +61,5 @@ export function useAuth() {
     }
   }
 
-  return { handleRegister, handleGetMe, handleLogin };
+  return { handleRegister, handleGetMe, handleLogin, handleLogout };
 }

@@ -16,6 +16,11 @@ export async function login({ email, password }) {
     return response.data;
 }
 
+export async function logout() {
+    const response = await authApiInstance.post("/logout");
+    return response.data;
+}
+
 
 export async function register({email, password, fullName}) {
     const response = await authApiInstance.post("/register", {

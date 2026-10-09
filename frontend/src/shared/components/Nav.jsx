@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Link, useNavigate } from "react-router";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useAuth } from "../../features/auth/hooks/useAuth";
 
 function Nav() {
   const { user } = useSelector((state) => state.auth);
+  const { handleLogout } = useAuth();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -41,37 +43,6 @@ function Nav() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const handleLogout = async () => {
-    try {
-      // Backend clears the token cookie
-      await axios.post(
-        "http://localhost:5000/api/auth/logout",
-        {},
-        {
-          withCredentials: true,
-        }
-      );
-
-      // Clear Redux user state
-      dispatch({
-        type: "auth/logout",
-      });
-
-      setShowProfile(false);
-
-      toast.success("Logged out successfully");
-
-      // Navigate to home
-      navigate("/");
-    } catch (error) {
-      console.error("Logout error:", error);
-
-      toast.error(
-        error.response?.data?.message || "Logout failed"
-      );
-    }
-  };
 
   return (
     <nav className="w-full border-b border-gray-200 bg-white">

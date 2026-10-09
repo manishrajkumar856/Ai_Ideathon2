@@ -1,7 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
 import { validateLoginUser, validateRegisterUser } from "../validator/auth.validator.js";
-import { googleController, login, me, register } from "../controller/auth.controller.js";
+import { googleController, login, logout, me, register } from "../controller/auth.controller.js";
 import { identifyUser } from "../middleware/auth.middleware.js";
 import { createCareerRoadmap } from "../controller/ai.controller.js";
 
@@ -12,6 +12,7 @@ console.log("Auth Router....")
 // Register User
 router.post('/register', validateRegisterUser, register);
 router.post('/login', validateLoginUser, login);
+router.post('/logout', identifyUser, logout);
 router.get('/me', identifyUser, me);
 
 
